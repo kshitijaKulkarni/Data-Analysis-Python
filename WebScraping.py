@@ -1,7 +1,6 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-
 import csv
 import requests
 from bs4 import BeautifulSoup
@@ -19,7 +18,6 @@ for rows in table.findAll('tr')[0:]:
 		text = cell.text.replace('&nbsp;', '')
 		list_of_cells.append(text)
 	list_of_rows.append(list_of_cells)
-	
 outfile = open("./Rankings.csv", "wb")
 writer = csv.writer(outfile)
 writer.writerows(list_of_rows)
